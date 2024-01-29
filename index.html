@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Capitalist clicker</title>
+  <link rel="icon" type="images/x-icon" href="coin.png" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<audio src="BMG.mp3" autoplay loop id = "music" >
+  
+
+</audio>
+<style>
+  .button {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin:10px;
+    width: 150px;
+    height: 75px;
+
+  }
+  .mbutton {
+    background-color: #85bb65;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin:10px;
+    width: 100px;
+    height: 45px;
+
+  }
+</style>
+<style>
+  .upgrades {
+      width: auto;
+      height: 100%;
+      margin: 0px;
+      left: 300px;
+      top: 250px;
+      overflow:scroll;
+
+      overflow-x: hidden;
+      position: absolute;
+      display: inline-block;
+
+    }
+
+  .up {
+        display: inline-block;
+        padding: 1rem 1rem;
+        vertical-align: middle;
+
+    }
+  }
+</style>
+<style>
+  .menu {
+
+      padding: 10px;
+      text-align: center;
+  }
+
+  .opt {
+      width: 50%;
+      float: left;
+      padding: 20px;
+  }  
+</style>
+  
+<script src = "script.js">
+
+</script>
+<body>
+  <font color = "black">
+    <div class = "header">
+      <h1 id="demo2">Money:</h2>
+
+      <h2 id="demo1">$0</h2>
+      
+    </div>
+    <div class = "game">
+      <div class = "menu">
+        <h1>&nbsp</h1>
+        <h3>&nbsp</h3>
+
+        <span>
+          <button class = "mbutton" onclick="save()">Save</button>
+        </span>
+        <span>
+          <button class = "mbutton" onclick="load()">Load</button>
+        </span>
+        <span>
+          <button class = "mbutton" onclick="stats()">Stats</button>
+        </span>
+        <span>
+          <button class = "mbutton" onclick="credits()">Credits</button>
+        </span>
+        <span>
+          <button class = "mbutton" onclick="help()">Help</button>
+        </span>
+        <span>
+          <button class = "mbutton" onclick="pause()">Music</button>
+        </span>
+      </div>
+      
+
+
+      
+      
+    
+
+      <div class = "up">
+        <span>
+          <button class = "button" onclick="myFunction()" >Work</button>
+
+
+
+
+          <h2>Total income:</h2>
+          <p id = "tot">$1</p>
+        </span>
+
+      </div>
+          
+      <center> 
+
+      <div class = "upgrades">
+        <h1>Upgrades</h1>
+        <h1>&nbsp</h1>
+        
+        <div class = "up">
+          <span>
+              <p>Foodstand</p>
+              <img src = "Foodstand.png" width = 54 height = 58>
+              <p id = "up1">$10</p>
+              <p id = "up1v">Income: +$1</p>
+              <p id = "amt1">Owned: 1</p>
+              <button class ="button" onclick="Upgrade1()">Buy</button>
+          </span>
+          
+        </div>
+        <div class = "up">
+          <span>
+              <p>Junk Store</p>
+              <img src = "Junk.png" width = 54 height = 58>
+              <p id = up2>$1000</p>
+              <p id = "up2v">Income: +$150</p>
+              <p id = "amt2">Owned: 0</p>
+              <button class ="button" onclick="Upgrade2()">Buy</button>
+          </span>
+        </div>
+        <div class = "up">
+          <span>
+              <p>Souvenir Store</p>
+              <img src = "Souv.png" width = 84 height = 58>
+              <p id = up3>$100000</p>
+              <p id = "up3v">Income: +$2000</p>
+              <p id = "amt3">Owned: 0</p>
+              <button class ="button" onclick="Upgrade3()">Buy</button>
+          </span>
+
+
+
+        </div>
+        <div class = "up">
+          <span>
+              <p>Grocery Store</p>
+              <img src = "Grocery.png" width = 58 height = 58>
+              <p id = up4>$10000000</p>
+              <p id = "up4v">Income: +$2500000</p>
+              <p id = "amt4">Owned: 0</p>
+              <button class ="button" onclick="Upgrade4()">Buy</button>
+          </span>
+
+
+
+        </div>
+        <div class = "up">
+          <span>
+              <p>Electronic Store</p>
+              <img src = "Elect.png" width = 68 height = 58>
+              <p id = "up5">$1000000000</p>
+              <p id = "up5v">Income: +$300000000</p>
+              <p id = "amt5">Owned: 0</p>
+              <button class ="button" onclick="Upgrade5()">Buy</button>
+          </span>
+
+
+
+        </div>
+        <div class = "up">
+          <span>
+              <p>Bookstore</p>
+              <img src = "bookstore.png" width = 58 height = 58>
+              <p id = "up6">Locked!</p>
+              <p id = "up6v">Locked!</p>
+              <p id = "amt6">Owned: 0</p>
+              <button class ="button" onclick="Upgrade6()">Buy</button>
+          </span>
+
+        </div>
+        <div class = "up">
+          <span>
+              <p>Furniture Store</p>
+              <img src = "Furn.png" width = 70 height = 58>
+              <p id = "up7">Locked!</p>
+              <p id = "up7v">Locked!</p>
+              <p id = "amt7">Owned: 0</p>
+              <button class ="button" onclick="Upgrade7()">Buy</button>
+          </span>
+        </div>
+        <div class = "up">
+          <span>
+              <p>Clothing Store</p>
+              <img src = "Cloth.png" width = 76 height = 58>
+              <p id = "up8">Locked!</p>
+              <p id = "up8v">Locked!</p>
+              <p id = "amt8">Owned: 0</p>
+              <button class ="button" onclick="Upgrade8()">Buy</button>
+          </span>
+
+
+
+        </div>
+        <div class = "up">
+          <span>
+              <p>Jewelery Store</p>
+              <img src = "Jewel.png" width = 74 height = 58>
+              <p id = "up9">Locked!</p>
+              <p id = "up9v">Locked!</p>
+              <p id = "amt9">Owned: 0</p>
+              <button class ="button" onclick="Upgrade9()">Buy</button>
+          </span>
+
+
+
+        </div>
+        
+        <div class = "up">
+          <span>
+              <p>Car Dealership</p>
+              <img src = "Car.png" width = 110 height = 58>
+              <p id = "up10">Locked!</p>
+              <p id = "up10v">Locked!</p>
+              <p id = "amt10">Owned: 0</p>
+              <button class ="button" onclick="Upgrade10()">Buy</button>
+          </span>
+
+
+
+
+        </div>
+        <h1>Partnerships</h1>
+        <h1>&nbsp</h1>
+        <div class = "up">
+          <span>
+              <p>WeScams</p>
+              <p id = "mup1">$5000</p>
+              <p id = "mup1v">Multi: +0.01x</p>
+              <p id = "mamt1">Relation: 0</p>
+              <button class ="button" onclick="Multi1()">Buy</button>
+          </span>
+
+
+
+        </div>
+        <div class = "up">
+          <span>
+            <p>PricersTM</p>
+            <p id = "mup2">$5000000</p>
+            <p id = "mup2v">Multi: +0.5x</p>
+            <p id = "mamt2">Relation: 0</p>
+            <button class ="button" onclick="Multi2()">Buy</button>
+          </span>
+
+        </div>
+        <div class = "up">
+          <span>
+              <p>RiseToFame</p>
+              <p id = mup3>Locked!</p>
+              <p id = "mup3v">Locked!</p>
+              <p id = "mamt3">Relation: 0</p>
+              <button class ="button" onclick="Multi3()">Buy</button>
+          </span>
+        </div>
+        <div class = "up">
+          <span>
+            <p>Googogles.co</p>
+            <p id = mup4>Locked!</p>
+            <p id = "mup4v">Locked!</p>
+            <p id = "mamt4">Relation: 0</p>
+            <button class ="button" onclick="Multi4()">Buy</button>
+          </span>
+
+
+  
+        </div>
+        <div class = "up">
+          <span>
+            <p>PBCAX</p>
+            <p id = mup5>Locked!</p>
+            <p id = "mup5v">Locked!</p>
+            <p id = "ma
+              mt5">Relation: 0</p>
+            <button class ="button" onclick="Multi5()">Buy</button>
+          </span>
+
+
+
+        </div>
+        <h1>Prestige</h1>
+        <div class = "up">
+          <span>
+            <p>Prestige</p>
+            <img src = "Badge.png" width = 58 height = 58>
+            <p id = pup1>$10000000000</p>
+            <p id = "pup1v">Lose everything for +1 multi and new content!</p>
+            <p id = "pamt1">Prestige: 0</p>
+            <button class ="button" onclick="Prestige()">Buy</button>
+          </span>
+
+
+
+        </div>
+
+
+        <br>
+      </div>
+        
+
+
+      <p>&nbsp</p>
+      
+        
+      </center>
+      
+    </div>
+  </font>
+
+  
+
+</body>
+</html> 
